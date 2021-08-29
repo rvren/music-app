@@ -9,7 +9,6 @@ function AlbumList({
 	albumList,
 	isDataLoaded,
 	viewAlbum,
-	likeAlbum,
 	filterAlbumData,
 	filteredListChips,
 	selectedAlbumFilter,
@@ -39,7 +38,6 @@ function AlbumList({
         album={album}
         key={album.id.label}
         viewAlbum={viewAlbum}
-        likeAlbum={likeAlbum}
         isFavouriteEnabled={true}
       />
     ));

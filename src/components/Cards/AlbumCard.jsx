@@ -2,10 +2,14 @@ import * as VscIcons from "react-icons/vsc";
 import Button from "../Button";
 import { useState } from "react";
 import Viewmodal from "../Viewmodal";
+import { useSelector, useDispatch } from "react-redux";
+import { updateLikedAlbums } from "../../slice/albumSlice";
 
 function AlbumCard({ album, isFavouriteEnabled, ...props }) {
   const [viewedAlbum, setViewedAlbum] = useState(null);
   const [open, setOpen] = useState(false);
+  const reducerAlbums = useSelector((state) => state.album.albums);
+  const dispatch = useDispatch();
 
   const viewAlbum = (album) => {
     setViewedAlbum(album);
@@ -15,6 +19,25 @@ function AlbumCard({ album, isFavouriteEnabled, ...props }) {
   const onClose = () => {
     setOpen(false);
   };
+
+  const handleLikeDispatch = (album) => {
+			const albumIndex = reducerAlbums.findIndex(item => item.id.attributes['im:id'] === album.id.attributes['im:id']);
+      var updatedLikedList = [...reducerAlbums];
+
+      if (albumIndex === -1) {
+        updatedLikedList.push(album)
+        alert(
+          `Successfully added ${album.title.label} to your favorites list.`
+        );
+      } else {
+        updatedLikedList.splice(albumIndex, 1)
+        alert(
+          `Successfully removed ${album.title.label} from your favorites list.`
+        );
+      }
+      
+     updatedLikedList && dispatch(updateLikedAlbums(updatedLikedList));
+  }
 
   return (
     <div className="Album__card">
@@ -27,7 +50,7 @@ function AlbumCard({ album, isFavouriteEnabled, ...props }) {
       {isFavouriteEnabled && (
         <Button
           className="Album__card__button-like"
-          onClick={() => props.likeAlbum(album)}
+          onClick={() => handleLikeDispatch(album)}
         >
           <VscIcons.VscHeart />{" "}
         </Button>

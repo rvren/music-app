@@ -1,12 +1,11 @@
 import { useEffect, useState, Fragment } from "react";
 import AlbumList from './AlbumList';
 import AlbumHeader from "./AlbumHeader";
-import { PARENT_ALBUM_FILTERS } from '../../constants'
+import { PARENT_ALBUM_FILTERS } from '../../constants';
 
 function Album({ isDataLoaded, defaultAlbumList, albumMappedList, ...props }) {
 	const [albumList, setAlbumList] = useState(defaultAlbumList);
 	const [searchTerm, setSearchTerm] = useState("");
-	const [likedAlbums, setLikedAlbums] = useState([]);
 	const [filteredListChips, setfilteredListChips] = useState(null);
 	const [selectedParentFilter, setSelectedParentFilter] = useState(PARENT_ALBUM_FILTERS[0].value);
 	const [selectedAlbumFilter, setSelectedAlbumFilter] = useState(null);
@@ -33,23 +32,6 @@ function Album({ isDataLoaded, defaultAlbumList, albumMappedList, ...props }) {
 
 	const searchAlbum = (searchInput) => {
 		setSearchTerm(searchInput);
-	};
-
-	const likeAlbum = (album) => {
-		const albumIndex = likedAlbums.indexOf(album);
-
-		if (albumIndex === -1) {
-			const albums = likedAlbums;
-			albums.push(album);
-			setLikedAlbums(albums);
-			alert(`Successfully added ${album.title.label} to your favorites list.`);
-		} else {
-			likedAlbums.splice(albumIndex, 1);
-			alert(
-				`Successfully removed ${album.title.label} from your favorites list.`
-			);
-		}
-		console.log(albumList.indexOf(album));
 	};
 
 	const filterAlbums = (type) => {
@@ -89,24 +71,24 @@ function Album({ isDataLoaded, defaultAlbumList, albumMappedList, ...props }) {
 	}
 
 	return (
-    <Fragment>
-      <div className="Album_card__header">
-        <AlbumHeader
-          searchValue={searchAlbum}
-          filterAlbums={filterAlbums}
-          selectedParentFilter={selectedParentFilter}
-        />
-      </div>
-      <AlbumList
-        albumList={albumList}
-        isDataLoaded={isDataLoaded}
-        filteredListChips={filteredListChips}
-        filterAlbumData={filterAlbumData}
-        selectedAlbumFilter={selectedAlbumFilter}
-        selectedParentFilter={selectedParentFilter}
-        likeAlbum={likeAlbum}
-      />
-    </Fragment>
+      <Fragment>
+          <div className="Album_card__header">
+            <AlbumHeader
+              searchValue={searchAlbum}
+              filterAlbums={filterAlbums}
+              selectedParentFilter={selectedParentFilter}
+            />
+          </div>
+          <AlbumList
+            albumList={albumList}
+            isDataLoaded={isDataLoaded}
+            filteredListChips={filteredListChips}
+            filterAlbumData={filterAlbumData}
+            selectedAlbumFilter={selectedAlbumFilter}
+            selectedParentFilter={selectedParentFilter}
+          />
+	</Fragment>
+      
   );
 }
 

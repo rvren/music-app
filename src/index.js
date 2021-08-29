@@ -1,24 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
-import Albums from "./containers/Albums";
-import Favourite from "./containers/Favourites";
-import SideNav from './components/Sidenav';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import App from './containers/main';
+import store from './config/store'
+import { Provider } from "react-redux";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <div className="Parent-container">
-        <SideNav />
-        <Switch>
-          <Route exact path="/" component={Albums} />
-          <Route path="/favourites" component={Favourite} />
-        </Switch>
-      </div>
-    </Router>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App/>
+  </Provider>,
   document.getElementById("root")
 );
 
