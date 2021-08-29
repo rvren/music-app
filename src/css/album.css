@@ -1,0 +1,323 @@
+.Album__container {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0.5rem;
+}
+
+.Album__card {
+		position: relative;
+		height: auto;
+		width: 175px;
+		border-radius: 4px;
+		margin: 0.5rem;
+		padding: 16px;
+		color: #FFFFFF;
+		background: #171717;
+		-webkit-transition: background-color 0.3s ease;
+		transition: background-color 0.3s ease;
+		cursor: pointer;
+}
+
+.Album__card__button-like {
+  position: absolute;
+  border-radius: 50%;
+  left: 6.5rem;
+  top: 8rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease, top 0.4s ease;
+  background-color: #1db954;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: middle;
+  color: #ffffff;
+  font-size: 1rem;
+  border: 1px solid transparent;
+	cursor: pointer;
+}
+
+
+.Album__card__button-view {
+	position: absolute;
+	border-radius: 50%;
+	left: 9.5rem;
+	top: 8rem;
+	text-align: center;
+	opacity: 0;
+	transition: opacity 0.4s ease, top 0.4s ease;
+	background-color: #1db954;
+	width: 2rem;
+	height: 2rem;
+	vertical-align: middle;
+	color: #FFFFFF;
+	font-size: 1rem;
+	border: 1px solid transparent;
+	cursor: pointer;
+}
+
+.Album__card:hover {
+	background-color: #282828;
+}
+
+.Album__card:hover > button {
+	opacity: 1;
+	top: 9.5rem;
+}
+
+.Album__card__title {
+		font-size: 0.7rem;
+		font-weight: 700;
+		margin-top: 1rem;
+		line-height: 1rem;
+		overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.Album__card__title-description {
+		overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+		color: #aeaeaf;
+		font-weight: 600;
+		font-size: 0.7rem;
+		line-height: 1.2rem;
+}
+
+.Album__card__avatar {
+		width: 100%;
+		display: block;
+		margin: 0 auto;
+}
+
+.Album_card__searchbar {
+	height: 2.5rem;
+	width: 35%;
+	border-radius: 2rem;
+	border: 1px solid transparent;
+	padding: 0 1rem;
+	outline: none;
+}
+
+.Placeholder__card {
+  position: relative;
+  height: auto;
+  width: 180px;
+  border-radius: 4px;
+  margin: 0.5rem;
+  padding: 16px;
+  color: #ffffff;
+  background: #171717;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.Album_card__filter {
+	color: #FFFFFF;
+	height: 20px;
+	font-size: 14px;
+	font-weight: 700;
+	display: inline;
+	margin: 0;
+	padding: 0.5rem 2rem;
+	cursor: pointer;
+	min-width: 5rem;
+	text-align: center;
+}
+
+.Album_card__filter-active {
+	background-color: #282828;
+	border-radius: 0.25rem;
+}
+
+.Album_card__filter-chips{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	width: 100%;
+	overflow-x: auto;
+	border-top: 1px solid #282828;
+	border-bottom: 1px solid #282828;
+	margin: 1rem 0;
+}
+
+
+.Album_card__filter-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.Album_card__filter-active {
+	background-color: #282828;
+	border-radius: 0.25rem;
+}
+
+.Album_card__header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.placeholder {
+  opacity: 0.7;
+  animation: placeholder-loading 1s linear infinite alternate;
+}
+
+.placeholder-text {
+  width: 100%;
+  height: 0.5rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.125rem;
+}
+
+.placeholder-text:last-child {
+  margin-bottom: 0;
+  width: 80%;
+}
+
+@keyframes placeholder-loading {
+  0% {
+    background-color: rgb(200, 200, 200, 0.4);
+  }
+
+  100% {
+    background-color: rgb(200, 200, 200, 0.8);
+  }
+}
+
+.Album__placeholdercard__avatar {
+  width: 100%;
+	min-height: 180px;
+  display: block;
+  margin: 0 auto;
+}
+
+.Album__placeholdercard {
+	position: relative;
+	height: auto;
+	width: 180px;
+	border-radius: 4px;
+	margin: 0.5rem;
+	padding: 16px;
+	color: #FFFFFF;
+	background: rgb(0,0,0,0.1);
+	-webkit-transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease;
+	cursor: pointer;
+}
+
+.Album__placeholder-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+}
+
+.Album__modal {
+	background: rgb(9 9 9);
+	height: 80vh;
+	width: 50vw;
+	border: 1px solid #3a3838;
+	border-radius: 4px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	color: #ffffff;
+	overflow-x: auto;
+	padding: 2rem;
+}
+
+.Album__modal p {
+	color: rgb(255,255,255,0.5);
+}
+
+.Album__modal-avatar {
+	width: 100%;
+	object-fit: contain;
+	height: 30vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .Album_card__header {
+    display: flex;
+    flex-direction: column;
+  }
+
+	.Album_card__searchbar {
+		width: 92%;
+	}
+
+	.Album__container {
+		flex-wrap: wrap;
+	}
+
+	.Album__card {
+		height: 25vh;
+		width: 30vw;
+	}
+
+	.Navigation-menu {
+		display: none;
+	}
+
+	.Container {
+		left: 0;
+		width: 100vw;
+	}
+
+	.Album__filter-list {
+		display: flex;
+		justify-content: space-between;
+		margin-left: -2rem;
+		overflow-x: auto;
+	}
+
+	.Album__filter-list::-webkit-scrollbar {
+  	display: none;
+	}
+
+	.Album_card__filter {
+		min-width: 6rem;
+	}
+
+	.Album__placeholdercard__avatar {
+		width: 100%;
+	}
+
+	.Album__placeholdercard {
+  	width: 75vw;
+	}
+
+	.Album__placeholder-container {
+  	flex-wrap: wrap;
+  	overflow-x: auto;
+	}
+
+	.Album__card__title {
+		width: 20vw;
+	}
+
+	.Album__card:hover > button {
+		top: 6rem;
+	}
+
+	.Album__card__button-like {
+		left: 1.5rem;
+	}
+
+	.Album__card__button-view {
+		left: 6rem;
+	}
+
+	.Album__modal {
+		height: 70vh;
+		width: 80vw;
+		color: #FFFFFF;
+}
+
+.Album__modal-avatar {
+  width: 100%;
+  object-fit: cover;
+  height: 30vh;
+}
+
+}
