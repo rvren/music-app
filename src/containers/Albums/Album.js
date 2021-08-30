@@ -46,13 +46,13 @@ function Album({ isDataLoaded, defaultAlbumList, albumMappedList, ...props }) {
 				listType = Object.keys(albumMappedList[type])[0];
 				setSelectedAlbumFilter(listType);
 				filteredList = albumMappedList[type][listType];
-				filteredListChips = Object.keys(albumMappedList[type]);
+				filteredListChips = Object.keys(albumMappedList[type]).sort();
 				break;
 			case PARENT_ALBUM_FILTERS[2].value:
 				listType = Object.keys(albumMappedList[type])[0];
 				setSelectedAlbumFilter(listType);
 				filteredList = albumMappedList[type][listType];
-				filteredListChips = Object.keys(albumMappedList[type]);
+				filteredListChips = Object.keys(albumMappedList[type]).sort();
 				break;
 			default:
 				filteredList = albumMappedList[type];

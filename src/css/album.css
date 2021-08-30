@@ -236,6 +236,13 @@
 	height: 30vh;
 }
 
+.Container__sub-title {
+	font-size: 0.8rem;
+	color: #FFFFFF;
+	margin: -1rem 1rem 1rem;
+	font-weight: 500;
+}
+
 @media only screen and (max-width: 768px) {
   .Album_card__header {
     display: flex;

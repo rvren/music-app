@@ -9,7 +9,7 @@ export const SidebarData = [
     cName: "Navigation-menu__text",
   },
   {
-    title: "Liked Songs",
+    title: "Liked Albums",
     path: "/favourites",
     icon: <VscIcons.VscHeart />,
     cName: "Navigation-menu__text",

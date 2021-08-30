@@ -11,7 +11,7 @@ function Favourite() {
       <AlbumCard
         album={album}
         key={album.id.label}
-        isFavouriteEnabled={false}
+        isFavouriteEnabled={true}
       />
     ));
 
@@ -20,6 +20,7 @@ function Favourite() {
       <div className="Container">
         <div className="Label__container">
           <h4 className="Container__title">Liked Albums</h4>
+          <h6 className="Container__sub-title">{albums.length} Album{albums.length > 1 && '\'s'}</h6>
           <div className="Album__container">
             {!albums.length && <NoresultCard />}
             {renderAlbumList}
