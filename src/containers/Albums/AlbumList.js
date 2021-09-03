@@ -18,7 +18,7 @@ function AlbumList({
 		const filteredList = filteredListChips?.length ? (
       <div className="Album_card__filter-chips">
         {filteredListChips.map((item) => (
-          <span
+          <div
             className={`Album_card__filter ${
               selectedAlbumFilter === item ? "Album_card__filter-active" : ""
             }`}
@@ -26,7 +26,7 @@ function AlbumList({
             onClick={() => filterAlbumData(item)}
           >
             {item}
-          </span>
+          </div>
         ))}
       </div>
     ) : "";
